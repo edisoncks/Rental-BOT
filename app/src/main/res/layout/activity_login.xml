@@ -11,7 +11,7 @@
     <Button
         android:id="@+id/btnLogin"
         android:layout_width="300dp"
-        android:layout_height="140dp"
+        android:layout_height="160dp"
         android:background="@drawable/login"
         android:layout_centerHorizontal="true"
         android:layout_alignParentBottom="true"

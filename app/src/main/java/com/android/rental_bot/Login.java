@@ -11,14 +11,14 @@ import android.widget.Button;
 
 public class Login extends ActionBarActivity {
 
-    final Button btnLogin = (Button) findViewById(R.id.btnLogin);
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
         // Code for login button
+        Button btnLogin = (Button) findViewById(R.id.btnLogin);
+
         btnLogin.setOnClickListener(new Button.OnClickListener() {
             @Override
             public void onClick(View v) {

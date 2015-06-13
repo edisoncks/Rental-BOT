@@ -1,13 +1,211 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<android.support.v4.widget.DrawerLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/drawerLayoutMainActivity"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:paddingLeft="0dp"
-    android:paddingRight="0dp"
-    android:paddingTop="0dp"
-    android:paddingBottom="0dp"
-    tools:context="com.android.rental_bot.MainActivity">
+    android:layout_height="match_parent">
+
+    <!-- The main content view -->
+    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/frameLayoutMainActivityContentFrame"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <com.daimajia.swipe.SwipeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:fab="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/swipeLayoutMainActivity"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <!-- Bottom View Start-->
+            <RelativeLayout
+                android:background="@color/ripple"
+                android:id="@+id/bottomWrapperSwipeLayoutMainActivity"
+                android:layout_width="match_parent"
+                android:layout_height="300dp">
+                <!--What you want to show-->
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginTop="130dp"
+                    android:text="Insert Search Filter Here"/>
+
+            </RelativeLayout>
+            <!-- Bottom View End-->
+
+            <!-- Surface View Start -->
+            <RelativeLayout
+                android:background="@color/BackgroundColor"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingLeft="0dp"
+                android:paddingRight="0dp"
+                android:paddingTop="0dp"
+                android:paddingBottom="0dp">
+                <!--What you want to show in SurfaceView-->
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/editTextMainActivitySearchBar"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true"
+                    android:hint="eg. Bukit Jalil or Sunway"
+                    android:background="@drawable/search_bar"
+                    android:gravity="center" />
+
+                <Button
+                    android:layout_width="26dp"
+                    android:layout_height="26dp"
+                    android:id="@+id/btnMainActivitySearchButton"
+                    android:layout_alignBottom="@+id/editTextMainActivitySearchBar"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginBottom="15dp"
+                    android:layout_marginRight="15dp"
+                    android:background="@drawable/search" />
+
+                <com.melnykov.fab.ObservableScrollView
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:id="@+id/scrollViewMainActivityMainContent"
+                    android:fillViewport="false"
+                    android:layout_below="@+id/btnMainActivitySearchButton">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="180dp"
+                        android:text="Insert Result List (Room List) Here"/>
+                </com.melnykov.fab.ObservableScrollView>
+
+                <com.melnykov.fab.FloatingActionButton
+                    android:id="@+id/fabMainActivity"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom|right"
+                    android:src="@drawable/ic_action_new_item"
+                    fab:fab_colorNormal="@color/primary"
+                    fab:fab_colorPressed="@color/primary_pressed"
+                    fab:fab_colorRipple="@color/ripple"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginRight="10dp" />
+
+            </RelativeLayout>
+            <!-- Surface View End -->
+        </com.daimajia.swipe.SwipeLayout>
+
+    </FrameLayout>
+
+    <!-- The navigation drawer -->
+    <ScrollView
+        android:id="@+id/scrollViewMainActivityDrawer"
+        android:layout_width="240dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:choiceMode="singleChoice"
+        android:divider="@android:color/transparent"
+        android:dividerHeight="0dp"
+        android:background="@color/DrawerColor">
+
+        <RelativeLayout
+            android:id="@+id/relativeLayoutMainActivityDrawerTopProfile"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/imageViewMainActivityDrawerTopProfileBanner"
+                android:layout_width="fill_parent"
+                android:layout_height="125dp"
+                android:scaleType="center"
+                android:src="@drawable/profile_banner"/>
+
+            <ImageView
+                android:id="@+id/imageViewMainActivityUserAvatar"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginLeft="16dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/ic_user_avatar"/>
+
+            <TextView
+                android:id="@+id/textViewMainActivityUserName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="70dp"
+                android:layout_marginLeft="16dp"
+                android:text="Edison Chong"
+                android:textColor="@color/ActionBarFontColor"
+                android:textSize="8pt"/>
+
+            <TextView
+                android:id="@+id/textViewMainActivityUserEmailr"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/textViewMainActivityUserName"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="25dp"
+                android:text="roticanai@gmail.com"
+                android:textColor="@color/ActionBarFontColor"
+                android:textSize="4pt"/>
+
+            <Button
+                android:id="@+id/btnMainActivityExpandMyOwnUnit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/imageViewMainActivityDrawerTopProfileBanner"
+                android:text="   My Own Unit"
+                android:textColor="@color/ActionBarFontColor"
+                android:gravity="center_vertical"
+                android:background="@color/DrawerItemColor"/>
+
+            <ImageView
+                android:id="@+id/imageViewMainActivityExpandMyOwnUnit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/btnMainActivityExpandMyOwnUnit"
+                android:layout_marginBottom="6dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="3dp"
+                android:src="@drawable/ic_action_hide"/>
 
 
+            <ListView android:id="@+id/listViewMainActivityMyOwnUnit"
+                android:layout_width="match_parent"
+                android:layout_height="136dp"
+                android:layout_below="@+id/btnMainActivityExpandMyOwnUnit"/>
 
-</RelativeLayout>
+            <Button
+                android:id="@+id/btnMainActivityExpandMyHistory"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/listViewMainActivityMyOwnUnit"
+                android:text="   Recently Viewed Room"
+                android:textColor="@color/ActionBarFontColor"
+                android:gravity="center_vertical"
+                android:background="@color/DrawerItemColor"/>
+
+            <ImageView
+                android:id="@+id/imageViewMainActitivtyExpandMyHistory"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/btnMainActivityExpandMyHistory"
+                android:layout_marginBottom="6dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="3dp"
+                android:src="@drawable/ic_action_hide"/>
+
+            <ListView android:id="@+id/listViewMainActivityMyHistory"
+                android:layout_width="match_parent"
+                android:layout_height="136dp"
+                android:layout_below="@+id/btnMainActivityExpandMyHistory"/>
+        </RelativeLayout>
+
+    </ScrollView>
+
+
+</android.support.v4.widget.DrawerLayout>
