@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBarDrawerToggle;
+import android.util.DisplayMetrics;
 import android.util.TypedValue;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -71,9 +72,10 @@ public class MainActivity extends ActionBarActivity {
 
 
         // FAB code starts
-        ScrollView scrollView = (ScrollView) findViewById(R.id.scrollViewMainActivityMainContent);
+        //ScrollView scrollView = (ScrollView) findViewById(R.id.scrollViewMainActivityMainContent);
+        ListView rListView = (ListView) findViewById(R.id.listViewMainActivityResultList);
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fabMainActivity);
-        fab.attachToScrollView((com.melnykov.fab.ObservableScrollView) scrollView);
+        fab.attachToListView((ListView) rListView);
 
         //FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new FloatingActionButton.OnClickListener() {
@@ -86,9 +88,9 @@ public class MainActivity extends ActionBarActivity {
 
         // Drawer - My Own Unit list view code starts
         ArrayList<Unit> arrayOfUnits = new ArrayList<>();
-        Unit unit1 = new Unit(R.drawable.room1, "Accomodation", "Sunway University", 700, "Fully Furnished", 2, 4, "M");
-        Unit unit2 = new Unit(R.drawable.room2, "A1-7-5, Vista Komanwel A", "Bukit Jalil", 500, "Fully Furnished", 3, 6, "F");
-        Unit unit3 = new Unit(R.drawable.room3, "A1-7-6, Vista Komanwel A", "Bukit Jalil", 600, "Fully Furnished", 4, 8, "M");
+        Unit unit1 = new Unit(R.drawable.room1, "3, Jalan PJS 11/9", "Bandar Sunway", 700, "Fully Furnished", 400, 359, "M");
+        Unit unit2 = new Unit(R.drawable.room2, "A1-7-5, Vista Komanwel A", "Bukit Jalil", 500, "Fully Furnished", 300, 128, "F");
+        Unit unit3 = new Unit(R.drawable.room3, "A1-7-6, Vista Komanwel A", "Bukit Jalil", 600, "Fully Furnished", 350, 243, "M");
         arrayOfUnits.add(unit1);
         arrayOfUnits.add(unit2);
         arrayOfUnits.add(unit3);
@@ -184,6 +186,36 @@ public class MainActivity extends ActionBarActivity {
             }
         });
         // Drawer - My History list view code ends
+
+        // Result list view code starts
+        Unit unit4 = new Unit(R.drawable.room4, "10, Jalan Radin", "Sri Petaling", 550, "Fully Furnished", 340, 298, "M");
+        Unit unit5 = new Unit(R.drawable.room5, "35, Jalan Merah 9", "Taman Pelangi, Johor Bahru", 340, "Partially Furnished", 200, 148, "F");
+        arrayOfUnits.add(unit4);
+        arrayOfUnits.add(unit5);
+        final ListView result_list = (ListView) findViewById(R.id.listViewMainActivityResultList);
+        ListAdapter resultListAdapter = new ResultListAdapter(this, arrayOfUnits);
+        result_list.setAdapter(resultListAdapter);
+        result_list.setOnItemClickListener(
+                new AdapterView.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                        Unit unit = (Unit) parent.getItemAtPosition(position);
+                        Toast.makeText(MainActivity.this, unit.unitAddress, Toast.LENGTH_LONG).show();
+                    }
+                }
+        );
+
+        /*// Code to set list view height
+        DisplayMetrics displayMetrics = getApplicationContext().getResources().getDisplayMetrics();
+
+        float dpHeight = displayMetrics.heightPixels / displayMetrics.density;
+        //float dpWidth = displayMetrics.widthPixels / displayMetrics.density;
+
+        ViewGroup.LayoutParams params = result_list.getLayoutParams();
+        float pixels = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, (dpHeight - 58), getResources().getDisplayMetrics());
+        params.height = (int) pixels;
+        result_list.setLayoutParams(params);*/
+        // Result list view code ends
 
         // SwipeLayout code starts
         SwipeLayout swipeLayout = (SwipeLayout) findViewById(R.id.swipeLayoutMainActivity);

@@ -16,7 +16,7 @@
             android:layout_height="match_parent">
             <!-- Bottom View Start-->
             <RelativeLayout
-                android:background="@color/ripple"
+                android:background="#e8eaf6"
                 android:id="@+id/bottomWrapperSwipeLayoutMainActivity"
                 android:layout_width="match_parent"
                 android:layout_height="300dp">
@@ -35,7 +35,7 @@
 
             <!-- Surface View Start -->
             <RelativeLayout
-                android:background="@color/BackgroundColor"
+                android:background="#FFF"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:paddingLeft="0dp"
@@ -45,7 +45,7 @@
                 <!--What you want to show in SurfaceView-->
                 <EditText
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="58dp"
                     android:id="@+id/editTextMainActivitySearchBar"
                     android:layout_alignParentTop="true"
                     android:layout_centerHorizontal="true"
@@ -64,20 +64,25 @@
                     android:layout_marginRight="15dp"
                     android:background="@drawable/search" />
 
-                <com.melnykov.fab.ObservableScrollView
-                    android:layout_width="fill_parent"
-                    android:layout_height="fill_parent"
+                <!--<com.melnykov.fab.ObservableScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
                     android:id="@+id/scrollViewMainActivityMainContent"
                     android:fillViewport="false"
                     android:layout_below="@+id/btnMainActivitySearchButton">
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_horizontal"
-                        android:layout_marginTop="180dp"
-                        android:text="Insert Result List (Room List) Here"/>
-                </com.melnykov.fab.ObservableScrollView>
+                    <ListView
+                        android:id="@+id/listViewMainActivityResultList"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"/>
+
+                </com.melnykov.fab.ObservableScrollView>-->
+
+                <ListView
+                    android:id="@+id/listViewMainActivityResultList"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_below="@+id/editTextMainActivitySearchBar"/>
 
                 <com.melnykov.fab.FloatingActionButton
                     android:id="@+id/fabMainActivity"
