@@ -22,7 +22,7 @@
                 android:background="#e8eaf6"
                 android:id="@+id/bottomWrapperSwipeLayoutMainActivity"
                 android:layout_width="match_parent"
-                android:layout_height="400dp">
+                android:layout_height="350dp">
                 <!--What you want to show-->
 
                 <!--NGO -->
@@ -37,88 +37,89 @@
                     android:layout_height="match_parent"
                     android:id="@+id/linear">
 
-                    <com.wrapp.floatlabelededittext.FloatLabeledEditText
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-
-                        <EditText
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:hint="Enter address here" />
-                    </com.wrapp.floatlabelededittext.FloatLabeledEditText>
-
                     <LinearLayout android:layout_width="fill_parent"
-                        android:layout_height="30dp"
+                        android:layout_height="wrap_content"
                         android:weightSum="2"
                         android:orientation="horizontal"
                         android:layout_centerVertical="true"
                         android:layout_alignParentLeft="true"
                         android:layout_alignParentStart="true">
 
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="20dp">
 
-                        <TextView
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="0.80"
-                            android:text="GENDER"
-                            android:textSize="12dp"
-                            android:id="@+id/textV2iew"
-                            android:textIsSelectable="false"
-                            android:gravity="center_vertical"
-                            android:textColor="#000"
-                            android:paddingLeft="20dp"
-                            android:elevation="15dp"/>
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="GENDER"
+                                android:textSize="12dp"
+                                android:id="@+id/textV2iew"
+                                android:textIsSelectable="false"
+                                android:textColor="#000"
+                                android:layout_alignParentTop="true"
+                                android:layout_alignParentLeft="true"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginTop="10dp"/>
 
+                            <RadioGroup
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentTop="true"
+                                android:layout_toRightOf="@+id/textV2iew"
+                                android:layout_marginLeft="50dp"
+                                android:orientation="horizontal"
+                                android:id="@+id/radioGroupGender">
+                                <RadioButton
+                                    android:layout_width="100dp"
+                                    android:layout_height="wrap_content"
+                                    android:text="Male"
+                                    android:id="@+id/radioButtonMale"
+                                    android:checked="false"/>
+                                <RadioButton
+                                    android:layout_width="100dp"
+                                    android:layout_height="wrap_content"
+                                    android:text="Female"
+                                    android:id="@+id/radioButtonFemale"
+                                    android:checked="false"/>
+                            </RadioGroup>
 
-                        <com.rey.material.widget.Spinner
-                            style="@style/Material.Widget.Spinner"
-                            android:layout_width="0dp"
-                            android:layout_height="45dp"
-                            android:layout_weight="1"
-                            android:id="@+id/spinnerGender"
-                            app:rd_style="@style/Material.Drawable.Ripple.Wave"
-                            android:gravity="center_vertical|center_horizontal"
-                            android:textColor="#1A237E"
-                            android:layout_marginLeft="20dp"
-                            android:layout_marginBottom="200dp"/>
-                    </LinearLayout>
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="FURNITURE"
+                                android:textSize="12dp"
+                                android:id="@+id/textView"
+                                android:textIsSelectable="false"
+                                android:textColor="#000"
+                                android:layout_alignLeft="@+id/textV2iew"
+                                android:layout_alignTop="@+id/radioGroupFurniture"
+                                android:layout_marginTop="10dp"/>
 
-                    <LinearLayout android:layout_width="fill_parent"
-                        android:layout_height="30dp"
-                        android:weightSum="2"
-                        android:orientation="horizontal"
-                        android:id="@+id/linearLayout2"
-                        android:layout_centerVertical="true"
-                        android:layout_alignParentLeft="true"
-                        android:layout_alignParentStart="true"
-                        >
+                            <RadioGroup
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/radioGroupGender"
+                                android:layout_alignLeft="@+id/radioGroupGender"
+                                android:orientation="horizontal"
+                                android:id="@+id/radioGroupFurniture">
+                                <RadioButton
+                                    android:layout_width="100dp"
+                                    android:layout_height="wrap_content"
+                                    android:text="Fully"
+                                    android:id="@+id/radioButtonFully"
+                                    android:checked="false"/>
 
+                                <RadioButton
+                                    android:layout_width="100dp"
+                                    android:layout_height="wrap_content"
+                                    android:text="Partially"
+                                    android:id="@+id/radioButtonPartially"
+                                    android:checked="false"/>
+                            </RadioGroup>
 
-                        <TextView
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="0.80"
-                            android:text="FURNITURE"
-                            android:textSize="12dp"
-                            android:id="@+id/textView"
-                            android:textIsSelectable="false"
-                            android:textColor="#000"
-                            android:gravity="center_vertical"
-                            android:paddingLeft="20dp"
-                            android:elevation="15dp"/>
-
-                        <com.rey.material.widget.Spinner
-                            style="@style/Material.Widget.Spinner"
-                            android:layout_width="0dp"
-                            android:layout_height="45dp"
-                            android:layout_weight="1"
-                            android:textSize="12dp"
-                            custom:spn_labelTextSize="1000dp"
-                            android:id="@+id/spinnerFurniture"
-                            app:rd_style="@style/Material.Drawable.Ripple.Wave"
-                            android:gravity="center_vertical|center_horizontal"
-                            android:textColor="#1A237E"
-                            android:layout_marginLeft="20dp"/>
+                        </RelativeLayout>
 
                     </LinearLayout>
 
@@ -130,170 +131,66 @@
                         android:layout_marginTop="10dp"
                         android:background="#000"/>
 
-
                     <RelativeLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="66dp"
                         android:layout_gravity="center_horizontal"
-                        android:layout_marginTop="10dp">
+                        android:layout_marginTop="12dp">
 
                         <TextView
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                            android:layout_height="fill_parent"
                             android:text="ROOM SIZE:"
                             android:id="@+id/textView7"
-                            android:textSize="10dp"
+                            android:textSize="16dp"
                             android:textColor="#000"
                             android:layout_alignParentTop="true"
                             android:layout_alignParentLeft="true"
-                            android:layout_alignParentStart="true"/>
+                            android:layout_alignParentStart="true"
+                            android:gravity="center_vertical|center_horizontal"
+                            android:layout_marginTop="16dp"/>
 
-                        <TextView
+                        <com.appyvet.rangebar.RangeBar
+                            xmlns:custom="http://schemas.android.com/apk/res-auto"
+                            android:id="@+id/rangeBarSearchRoomSize"
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="BETWEEN"
-                            android:id="@+id/textView8"
-                            android:textSize="10dp"
-                            android:textColor="#000"
+                            android:layout_height="68dp"
+                            custom:tickStart="100"
+                            custom:tickEnd="500"
+                            custom:tickInterval="50"
+                            custom:barWeight="10dp"
                             android:layout_alignParentTop="true"
                             android:layout_toRightOf="@+id/textView7"
-                            android:layout_toEndOf="@+id/textView7"
-                            android:layout_marginLeft="10dp"/>
+                            android:layout_toEndOf="@+id/textView7"/>
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="100"
-                            android:id="@+id/textViewSearchRoomSizeMin"
-                            android:textSize="15dp"
-                            android:textColor="#000"
-                            android:layout_alignParentTop="true"
-                            android:layout_toRightOf="@+id/textView8"
-                            android:layout_toEndOf="@+id/textView8"
-                            android:layout_marginLeft="10dp"
-                            android:layout_marginRight="10dp"
-                            android:elevation="10dp"/>
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="1000"
-                            android:id="@+id/textViewSearchRoomSizeMax"
-                            android:textSize="15dp"
-                            android:textColor="#000"
-                            android:layout_marginLeft="27dp"
-                            android:layout_marginStart="27dp"
-                            android:elevation="10dp"
-                            android:layout_alignParentTop="true"
-                            android:layout_toRightOf="@+id/textViewSearchRoomSizeMin"
-                            android:layout_toEndOf="@+id/textViewSearchRoomSizeMin"/>
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="&amp;"
-                            android:id="@+id/textView11"
-                            android:textSize="15dp"
-                            android:textColor="#000"
-                            android:layout_alignParentTop="true"
-                            android:layout_toRightOf="@+id/textViewSearchRoomSizeMin"
-                            android:layout_toEndOf="@+id/textViewSearchRoomSizeMin"/>
                     </RelativeLayout>
-
-                    <com.appyvet.rangebar.RangeBar
-                        xmlns:custom="http://schemas.android.com/apk/res-auto"
-                        android:id="@+id/rangeBarSearchRoomSize"
-                        android:layout_width="wrap_content"
-                        android:layout_height="68dp"
-                        custom:tickStart="100"
-                        custom:tickEnd="500"
-                        custom:tickInterval="50"
-                        custom:barWeight="10dp"
-                        android:layout_alignParentTop="true"
-                        android:layout_alignParentLeft="true"
-                        android:layout_alignParentStart="true"
-                        />
 
                     <ImageView
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
                         android:id="@+id/imageView2"
                         android:layout_gravity="center_horizontal"
-                        android:layout_marginTop="15dp"
                         android:background="#000"/>
 
                     <RelativeLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp">
+                        android:layout_height="66dp"
+                        android:layout_marginTop="12dp"
+                        android:layout_marginBottom="20dp">
 
                         <TextView
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                            android:layout_height="match_parent"
                             android:text="RENTAL:"
                             android:id="@+id/zzz2"
-                            android:textSize="10dp"
+                            android:textSize="16dp"
                             android:textColor="#000"
                             android:layout_alignParentTop="true"
                             android:layout_alignParentLeft="true"
-                            android:layout_alignParentStart="true"/>
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="BETWEEN"
-                            android:id="@+id/textView3"
-                            android:textSize="10dp"
-                            android:textColor="#000"
-                            android:layout_alignParentTop="true"
-                            android:layout_toRightOf="@+id/zzz2"
-                            android:layout_toEndOf="@+id/zzz2"
-                            android:layout_marginLeft="34dp"/>
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="100"
-                            android:id="@+id/textViewSearchRentalMin"
-                            android:textSize="15dp"
-                            android:textColor="#000"
-                            android:layout_alignParentTop="true"
-                            android:layout_toRightOf="@+id/textView3"
-                            android:layout_toEndOf="@+id/textView3"
-                            android:layout_marginLeft="10dp"
-                            android:layout_marginRight="10dp"
-                            android:elevation="10dp"/>
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="1000"
-                            android:id="@+id/textViewSearchRentalMax"
-                            android:textSize="15dp"
-                            android:textColor="#000"
-                            android:layout_alignParentTop="true"
-                            android:layout_toRightOf="@+id/textView6"
-                            android:layout_toEndOf="@+id/textView6"
-                            android:layout_marginLeft="10dp"
-                            android:layout_marginStart="27dp"
-                            android:elevation="10dp"/>
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="&amp;"
-                            android:id="@+id/textView6"
-                            android:textSize="15dp"
-                            android:textColor="#000"
-                            android:layout_alignParentTop="true"
-                            android:layout_toRightOf="@+id/textViewSearchRentalMin"
-                            android:layout_toEndOf="@+id/textViewSearchRentalMin"/>
-                    </RelativeLayout>
-
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        >
+                            android:layout_alignParentStart="true"
+                            android:layout_marginTop="16dp"
+                            android:gravity="center_vertical"
+                            android:layout_marginRight="24dp"/>
 
                         <com.appyvet.rangebar.RangeBar
                             xmlns:custom="http://schemas.android.com/apk/res-auto"
@@ -304,44 +201,41 @@
                             custom:tickEnd="1000"
                             custom:tickInterval="100"
                             custom:barWeight="10dp"
-                            android:layout_alignParentTop="true"
-                            android:layout_alignParentLeft="true"
-                            android:layout_alignParentStart="true"/>
+                            android:layout_centerVertical="true"
+                            android:layout_toRightOf="@+id/zzz2"
+                            android:layout_toEndOf="@+id/zzz2"/>
 
-                        <info.hoang8f.widget.FButton
+                    </RelativeLayout>
 
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:id="@+id/imageView3"
+                        android:layout_gravity="center_horizontal"
+                        android:background="#000"
+                        android:layout_marginTop="-10dp"/>
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:gravity="center_horizontal"
+                        android:layout_marginTop="10dp">
+
+
+                        <Button
                             android:layout_width="160dp"
                             android:layout_height="40dp"
                             android:text="Search"
                             android:id="@+id/btnSearchSearch"
-                            fbutton:buttonColor="@color/fbutton_color_peter_river"
-                            fbutton:shadowColor="@color/fbutton_color_asbestos"
-                            fbutton:shadowEnabled="true"
-                            fbutton:shadowHeight="5dp"
-                            fbutton:cornerRadius="5dp"
-                            android:textSize="15dp"
-                            android:layout_marginRight="26dp"
-                            android:layout_marginEnd="47dp"
-                            android:layout_below="@+id/rangebarSearchRental"
-                            android:layout_alignParentRight="true"
-                            android:layout_alignParentEnd="true"
-                            android:layout_marginLeft="15dp"/>
-                        <info.hoang8f.widget.FButton
-
-
-                            fbutton:buttonColor="@color/fbutton_color_peter_river"
-                            fbutton:shadowColor="@color/fbutton_color_asbestos"
-                            fbutton:shadowEnabled="true"
-                            fbutton:shadowHeight="5dp"
-                            fbutton:cornerRadius="5dp"
+                            android:textSize="15dp"/>
+                        <Button
                             android:layout_width="160dp"
                             android:layout_height="40dp"
                             android:text="Near Me"
                             android:id="@+id/btnSearchNearMe"
                             android:textSize="15dp"
-                            android:layout_below="@+id/rangebarSearchRental"
-                            android:layout_toLeftOf="@+id/btnSearchSearch"
-                            android:layout_toStartOf="@+id/btnSearchSearch"/>
+                            android:layout_toRightOf="@+id/btnSearchSearch"/>
 
                     </RelativeLayout>
 

@@ -13,15 +13,19 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.ScrollView;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import com.appyvet.rangebar.RangeBar;
 import com.daimajia.swipe.SwipeLayout;
 import com.melnykov.fab.FloatingActionButton;
+import com.rey.material.widget.Spinner;
 
 import java.util.ArrayList;
 
@@ -240,6 +244,42 @@ public class MainActivity extends ActionBarActivity {
                 Toast.makeText(MainActivity.this, "Search Button Clicked", Toast.LENGTH_SHORT).show();
             }
         });
+
+
+        // Search filter code starts
+        final Button btnSearchNearMe = (Button) findViewById(R.id.btnSearchNearMe);
+        final Button btnSearchSearch = (Button) findViewById(R.id.btnSearchSearch);
+
+        RangeBar rangeBarSearchRoomSize = (RangeBar) findViewById(R.id.rangeBarSearchRoomSize);
+        rangeBarSearchRoomSize.setOnRangeBarChangeListener(new RangeBar.OnRangeBarChangeListener() {
+            @Override
+            public void onRangeChangeListener(RangeBar rangeBar, int i, int i1, String s, String s1) {
+
+            }
+        });
+        RangeBar rangeBarSearchRental = (RangeBar) findViewById(R.id.rangebarSearchRental);
+
+
+        rangeBarSearchRental.setOnRangeBarChangeListener(new RangeBar.OnRangeBarChangeListener() {
+            @Override
+            public void onRangeChangeListener(RangeBar rangeBar, int i, int i1, String s, String s1) {
+            }
+        });
+
+
+
+        btnSearchNearMe.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+            }
+        });
+
+        btnSearchSearch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+            }
+        });
+
     }
 
     // Drawer toggle button related code starts
