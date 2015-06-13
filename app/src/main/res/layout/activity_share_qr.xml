@@ -1,10 +1,29 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingLeft="0dp"
     android:paddingRight="0dp"
     android:paddingTop="0dp"
     android:paddingBottom="0dp"
-    tools:context="com.android.rental_bot.ShareQR">
+    tools:context="com.android.rental_bot.ShareQR"
+    android:orientation="vertical"
+    android:gravity="center">
 
-</RelativeLayout>
+    <WebView
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:id="@+id/webviewShareQRcode"
+        android:layout_centerInParent="true"
+        android:layout_gravity="center" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/webviewShareQRcode"
+        android:id="@+id/btnShareQRShare"
+        android:text="Share"
+        android:longClickable="false"
+        android:layout_centerInParent="true"
+        android:layout_gravity="center_horizontal" />
+
+</LinearLayout>
