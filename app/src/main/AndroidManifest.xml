@@ -38,6 +38,22 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.android.rental_bot.MainActivity" />
         </activity>
+        <activity
+            android:name=".ShareQR"
+            android:label="@string/title_activity_share_qr"
+            android:parentActivityName=".RoomDetail" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.android.rental_bot.RoomDetail" />
+        </activity>
+        <activity
+            android:name=".InviteFriends"
+            android:label="@string/title_activity_invite_friends"
+            android:parentActivityName=".RoomDetail" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.android.rental_bot.RoomDetail" />
+        </activity>
     </application>
 
 </manifest>

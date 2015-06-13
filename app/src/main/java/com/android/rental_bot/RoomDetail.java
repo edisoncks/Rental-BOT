@@ -1,5 +1,6 @@
 package com.android.rental_bot;
 
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -36,7 +37,14 @@ public class RoomDetail extends ActionBarActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        if (id == R.id.action_invite) {
+            Intent intent = new Intent(getApplicationContext(), InviteFriends.class);
+            startActivity(intent);
+            return true;
+        }
+        if (id == R.id.action_share) {
+            Intent intent = new Intent(getApplicationContext(), ShareQR.class);
+            startActivity(intent);
             return true;
         }
 

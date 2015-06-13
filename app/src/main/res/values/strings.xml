@@ -10,4 +10,8 @@
     <string name="drawer_close">@string/app_name</string>
 
     <string name="room_description">This delightful three bedroomed house is arranged over four floors, superb proportions throughout and a lovely rear garden.\n\nThe property also comprises two wonderful reception rooms, fantastic kitchen with dining and familiy area, sunny master bedroom with fitted wardrobes, gorgeous second bedroom, third bedroom, bathroom, modern shower room and guest cloakroom.</string>
+    <string name="title_activity_share_qr">ShareQR</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="title_activity_invite_friends">InviteFriends</string>
 </resources>

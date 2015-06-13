@@ -192,7 +192,6 @@
                 android:layout_alignParentRight="true"
                 android:src="@drawable/page_flip"/>
 
-
         </RelativeLayout>
     </com.daimajia.swipe.SwipeLayout>
 
