@@ -1,11 +1,203 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
-    tools:context="com.android.rental_bot.PostMyRoom">
+    tools:context=".PostMyRoom"
+    android:orientation="vertical"
+    android:id="@+id/mainLinearLayout"
+    android:weightSum="1"
 
+    android:gravity="right">
+
+    <ImageButton
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:id="@+id/imageButtonPostMyRoomUploadPhoto"
+        android:src="@drawable/insert_image_2"
+        android:scaleType="fitCenter"
+        />
+
+    <TextView
+        android:layout_width="60dp"
+        android:layout_height="30dp"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Area"
+        android:id="@+id/textViewPostMyRoomArea"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/imageButtonPostMyRoomUploadPhoto"
+        android:layout_toEndOf="@+id/imageButtonPostMyRoomUploadPhoto"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:paddingTop="5dp"
+        android:textSize="20dp" />
+
+    <com.rengwuxian.materialedittext.MaterialEditText
+        android:layout_width="300dp"
+        android:layout_height="40dp"
+        android:hint="Enter the areas"
+        android:textSize="15dp"
+        android:id="@+id/editTextPostMyRoomArea"
+        android:layout_below="@+id/textViewPostMyRoomArea"
+        android:layout_alignLeft="@+id/textViewPostMyRoomArea"
+        android:layout_alignStart="@+id/textViewPostMyRoomArea" />
+
+    <TextView
+        android:layout_width="100dp"
+        android:layout_height="30dp"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Address"
+        android:id="@+id/textViewPostMyRoomAddress"
+        android:paddingTop="5dp"
+        android:layout_below="@+id/imageButtonPostMyRoomUploadPhoto"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="20dp"
+        android:textSize="20dp" />
+
+    <com.rengwuxian.materialedittext.MaterialEditText
+        android:inputType="textMultiLine"
+        android:lines="4"
+        android:minLines="1"
+        android:gravity="top|left"
+        android:maxLines="10"
+        android:layout_width="400dp"
+        android:layout_height="wrap_content"
+        android:hint="Enter the Address"
+        android:textSize="15dp"
+        android:id="@+id/editTextPostMyRoomAddress"
+        android:layout_below="@+id/textViewPostMyRoomAddress"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="150dp"
+        android:layout_height="30dp"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Description"
+        android:id="@+id/textViewPostMyRoomDescription"
+        android:paddingTop="5dp"
+        android:layout_below="@+id/editTextPostMyRoomAddress"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:textSize="20dp"
+        android:layout_marginTop="20dp"/>
+
+    <com.rengwuxian.materialedittext.MaterialEditText
+        android:inputType="textMultiLine"
+        android:lines="4"
+        android:minLines="1"
+        android:gravity="top|left"
+        android:maxLines="10"
+        android:layout_width="400dp"
+        android:layout_height="wrap_content"
+        android:hint="Enter the Description"
+        android:textSize="15dp"
+        android:id="@+id/editTextPostMyRoomDescription"
+        android:layout_below="@+id/textViewPostMyRoomDescription"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"/>
+
+
+    <TextView
+        android:layout_width="140dp"
+        android:layout_height="30dp"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Rental Fees"
+        android:id="@+id/textViewPostMyRoomRental"
+        android:paddingTop="5dp"
+        android:layout_below="@+id/editTextPostMyRoomDescription"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="20dp"
+        android:elevation="20px"
+        android:focusable="true" />
+
+    <com.rengwuxian.materialedittext.MaterialEditText
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:hint="Enter the amounts"
+        android:textSize="13dp"
+        android:id="@+id/editTextPostMyRoomRental"
+        android:layout_below="@+id/editTextPostMyRoomDescription"
+        android:layout_toRightOf="@+id/textViewPostMyRoomArea"
+        android:layout_toEndOf="@+id/textViewPostMyRoomArea"
+        android:layout_marginTop="20dp" />
+
+
+    <TextView
+        android:layout_width="140dp"
+        android:layout_height="30dp"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Furniture"
+        android:id="@+id/textViewPostMyRoomFurniture"
+        android:paddingTop="5dp"
+        android:layout_below="@+id/textViewPostMyRoomRental"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="30dp"
+        android:elevation="20px" />
+
+
+    <com.rey.material.widget.Spinner
+        style="@style/Material.Widget.Spinner"
+        android:layout_width="200dp"
+        android:layout_height="30dp"
+        android:id="@+id/spinnerPostMyRoomFurniture"
+        android:layout_alignTop="@+id/textViewPostMyRoomFurniture"
+        android:layout_toRightOf="@+id/textViewPostMyRoomArea"
+        android:layout_toEndOf="@+id/textViewPostMyRoomArea" />
+
+
+    <TextView
+        android:layout_width="140dp"
+        android:layout_height="30dp"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Gender"
+        android:id="@+id/textViewPostMyRoomGender"
+        android:paddingTop="5dp"
+        android:layout_below="@+id/textViewPostMyRoomFurniture"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="30dp"
+        android:elevation="20px" />
+
+
+    <com.rey.material.widget.Spinner
+        style="@style/Material.Widget.Spinner"
+        android:layout_width="200dp"
+        android:layout_height="30dp"
+        android:id="@+id/spinnerPostMyRoomGender"
+        android:layout_alignTop="@+id/textViewPostMyRoomGender"
+        android:layout_toRightOf="@+id/textViewPostMyRoomArea"
+        android:layout_toEndOf="@+id/textViewPostMyRoomArea" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:id="@+id/imageViewPostMyRoomLine1"
+        android:layout_below="@+id/textViewPostMyRoomAddress"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:background="#000000" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:id="@+id/imageViewPostMyRoomLine2"
+        android:layout_below="@+id/textViewPostMyRoomDescription"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:background="#000000" />
 
 
 </RelativeLayout>
+
+
+
+
+
+
