@@ -252,7 +252,9 @@
                 android:paddingLeft="0dp"
                 android:paddingRight="0dp"
                 android:paddingTop="0dp"
-                android:paddingBottom="0dp">
+                android:paddingBottom="0dp"
+                android:descendantFocusability="beforeDescendants"
+                android:focusableInTouchMode="true">
                 <!--What you want to show in SurfaceView-->
                 <EditText
                     android:layout_width="match_parent"
@@ -262,7 +264,7 @@
                     android:layout_centerHorizontal="true"
                     android:hint="eg. Bukit Jalil or Sunway"
                     android:background="@drawable/search_bar"
-                    android:gravity="center" />
+                    android:gravity="center"/>
 
                 <Button
                     android:layout_width="26dp"

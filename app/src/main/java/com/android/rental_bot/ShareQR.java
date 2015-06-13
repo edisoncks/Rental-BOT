@@ -10,6 +10,10 @@ import android.view.View;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.Button;
+import android.widget.ListView;
+import android.widget.Toast;
+
+import com.melnykov.fab.FloatingActionButton;
 
 
 public class ShareQR extends ActionBarActivity {
@@ -25,7 +29,7 @@ public class ShareQR extends ActionBarActivity {
 
         webView.loadUrl("http://chart.apis.google.com/chart?cht=qr&chs=300x300&chl=QWERTY&chld=H");
 
-        Button share = (Button)findViewById(R.id.btnShareQRShare);
+        /*Button share = (Button)findViewById(R.id.btnShareQRShare);
         share.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -35,7 +39,23 @@ public class ShareQR extends ActionBarActivity {
                 sendIntent.setType("text/plain");
                 startActivity(Intent.createChooser(sendIntent,getResources().getText(R.string.send_to)));
             }
+        });*/
+
+        // FAB code starts
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fabShareQR);
+
+        //FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        fab.setOnClickListener(new FloatingActionButton.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent sendIntent = new Intent();
+                sendIntent.setAction(Intent.ACTION_SEND);
+                sendIntent.putExtra(Intent.EXTRA_TEXT, "http://chart.apis.google.com/chart?cht=qr&chs=300x300&chl=QWERTY&chld=H");
+                sendIntent.setType("text/plain");
+                startActivity(Intent.createChooser(sendIntent,getResources().getText(R.string.send_to)));
+            }
         });
+        // FAB code ends
     }
 
     private class CustomWebViewClient extends WebViewClient{
