@@ -11,7 +11,8 @@
         android:theme="@style/MainMenuTheme" >
         <activity
             android:name=".Login"
-            android:label="@string/title_activity_login" >
+            android:label="@string/title_activity_login"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -20,12 +21,14 @@
         </activity>
         <activity
             android:name=".MainActivity"
-            android:label="@string/title_activity_main" >
+            android:label="@string/title_activity_main"
+            android:screenOrientation="portrait">
         </activity>
         <activity
             android:name=".RoomDetail"
             android:label="@string/title_activity_room_detail"
-            android:parentActivityName=".MainActivity" >
+            android:parentActivityName=".MainActivity"
+            android:screenOrientation="portrait">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.android.rental_bot.MainActivity" />
@@ -33,7 +36,8 @@
         <activity
             android:name=".PostMyRoom"
             android:label="@string/title_activity_post_my_room"
-            android:parentActivityName=".MainActivity" >
+            android:parentActivityName=".MainActivity"
+            android:screenOrientation="portrait">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.android.rental_bot.MainActivity" />
@@ -41,7 +45,8 @@
         <activity
             android:name=".ShareQR"
             android:label="@string/title_activity_share_qr"
-            android:parentActivityName=".RoomDetail" >
+            android:parentActivityName=".RoomDetail"
+            android:screenOrientation="portrait">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.android.rental_bot.RoomDetail" />
@@ -49,7 +54,8 @@
         <activity
             android:name=".InviteFriends"
             android:label="@string/title_activity_invite_friends"
-            android:parentActivityName=".RoomDetail" >
+            android:parentActivityName=".RoomDetail"
+            android:screenOrientation="portrait">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.android.rental_bot.RoomDetail" />
@@ -57,7 +63,8 @@
         <activity
             android:name=".Notification"
             android:label="@string/title_activity_notification"
-            android:parentActivityName=".MainActivity" >
+            android:parentActivityName=".MainActivity"
+            android:screenOrientation="portrait">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.android.rental_bot.MainActivity" />
