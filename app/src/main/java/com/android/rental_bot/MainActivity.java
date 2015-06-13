@@ -82,6 +82,8 @@ public class MainActivity extends ActionBarActivity {
             @Override
             public void onClick(View v) {
                 Toast.makeText(MainActivity.this, "FAB Clicked", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(getApplicationContext(), PostMyRoom.class);
+                startActivity(intent);
             }
         });
         // FAB code ends

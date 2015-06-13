@@ -28,6 +28,14 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.android.rental_bot.MainActivity" />
         </activity>
+        <activity
+            android:name=".PostMyRoom"
+            android:label="@string/title_activity_post_my_room"
+            android:parentActivityName=".MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.android.rental_bot.MainActivity" />
+        </activity>
     </application>
 
 </manifest>
