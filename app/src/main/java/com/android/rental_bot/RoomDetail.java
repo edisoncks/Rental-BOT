@@ -4,6 +4,8 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 
 
 public class RoomDetail extends ActionBarActivity {
@@ -12,6 +14,11 @@ public class RoomDetail extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_room_detail);
+
+        final WebView webView = (WebView) findViewById(R.id.webViewRoomDetailPOI);
+        webView.getSettings().setJavaScriptEnabled(true);
+        webView.setWebViewClient(new CustomWebViewClient());
+        webView.loadUrl("http://maps.google.com/?q=restaurants|mall|atm|cafe - Bandar Sunway");
     }
 
     @Override
@@ -34,5 +41,13 @@ public class RoomDetail extends ActionBarActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    private class CustomWebViewClient extends WebViewClient {
+        @Override
+        public boolean shouldOverrideUrlLoading(WebView view, String url) {
+            view.loadUrl(url);
+            return true;
+        }
     }
 }

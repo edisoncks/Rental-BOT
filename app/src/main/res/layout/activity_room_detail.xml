@@ -1,5 +1,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:fab="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingLeft="0dp"
     android:paddingRight="0dp"
@@ -17,6 +19,33 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="#090911">
+
+            <!--<ImageView
+                android:id="@+id/imageViewRoomDetailPOI"
+                android:layout_width="260dp"
+                android:layout_height="40dp"
+                android:layout_centerHorizontal="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="20dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/poi"/>-->
+
+            <!--<TextView
+                android:id="@+id/textViewRoomDetailPOI"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentLeft="true"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="20dp"
+                android:text="Points of Interest"
+                android:textColor="#eeeeee"
+                android:textSize="20dp"/>-->
+
+            <WebView
+                android:id="@+id/webViewRoomDetailPOI"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
 
         </RelativeLayout>
 
@@ -98,7 +127,7 @@
                     android:id="@+id/textViewRoomDetailRoomRental"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="RM700"
+                    android:text="RM700.00"
                     android:layout_alignParentLeft="true"
                     android:textColor="#8c9eff"
                     android:textSize="17dp"/>
@@ -123,7 +152,27 @@
 
             </RelativeLayout>
 
-            <TextView
+            <RelativeLayout
+                android:id="@+id/relativeLayoutRoomDetailRoomDescription"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/relativeLayoutRoomDetailRoomSubtitle"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp">
+
+                <TextView
+                    android:id="@+id/textViewRoomDetailRoomDescription"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/room_description"
+                    android:layout_centerHorizontal="true"
+                    android:textColor="#eeeeee" />
+
+            </RelativeLayout>
+
+            <!--<TextView
                 android:id="@+id/textViewRoomDetailRoomDescription"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -131,11 +180,20 @@
                 android:layout_below="@+id/relativeLayoutRoomDetailRoomSubtitle"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="42dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
-                android:textColor="#eeeeee"/>
+                android:layout_marginLeft="25dp"
+                android:layout_marginRight="25dp"
+                android:textColor="#eeeeee"/>-->
 
-        </RelativeLayout>'
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:scaleType="fitXY"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentRight="true"
+                android:src="@drawable/page_flip"/>
+
+
+        </RelativeLayout>
     </com.daimajia.swipe.SwipeLayout>
 
 </RelativeLayout>
