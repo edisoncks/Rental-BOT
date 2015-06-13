@@ -54,6 +54,14 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.android.rental_bot.RoomDetail" />
         </activity>
+        <activity
+            android:name=".Notification"
+            android:label="@string/title_activity_notification"
+            android:parentActivityName=".MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.android.rental_bot.MainActivity" />
+        </activity>
     </application>
 
 </manifest>

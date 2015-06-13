@@ -279,7 +279,17 @@ public class MainActivity extends ActionBarActivity {
             public void onClick(View v) {
             }
         });
+        // Search filter code ends
 
+        // Notification button listener
+        ImageView avatar = (ImageView) findViewById(R.id.imageViewMainActivityUserAvatar);
+        avatar.setOnClickListener(new ImageView.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), Notification.class);
+                startActivity(intent);
+            }
+        });
     }
 
     // Drawer toggle button related code starts
@@ -303,7 +313,7 @@ public class MainActivity extends ActionBarActivity {
         getMenuInflater().inflate(R.menu.menu_main, menu);
 
         // Code to hide/unhide menu item
-        menu.findItem(R.id.action_settings).setVisible(!hideMenuItem);
+        /*menu.findItem(R.id.action_settings).setVisible(!hideMenuItem);*/
 
         return true;
     }
@@ -322,9 +332,9 @@ public class MainActivity extends ActionBarActivity {
         }
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        /*if (id == R.id.action_settings) {
             return true;
-        }
+        }*/
 
         return super.onOptionsItemSelected(item);
     }

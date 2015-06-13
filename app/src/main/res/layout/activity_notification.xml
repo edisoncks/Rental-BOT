@@ -1,0 +1,151 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="0dp"
+    android:paddingRight="0dp"
+    android:paddingTop="0dp"
+    android:paddingBottom="0dp"
+    tools:context="com.android.rental_bot.Notification">
+
+
+    <ImageView
+        android:id="@+id/imageViewNotification1"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/profile1"/>
+
+    <TextView
+        android:id="@+id/textViewNotification1"
+        android:layout_width="240dp"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/imageViewNotification1"
+        android:layout_toRightOf="@+id/imageViewNotification1"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="15dp"
+        android:text="Dave Houston has invited you to check out a room!"/>
+
+    <ImageView
+        android:id="@+id/imageViewNotificationLine1"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_below="@+id/imageViewNotification1"
+        android:layout_marginTop="20dp"
+        android:src="#000"/>
+
+    <ImageView
+        android:id="@+id/imageViewNotification2"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_below="@+id/imageViewNotificationLine1"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/profile2"/>
+
+    <TextView
+        android:id="@+id/textViewNotification2"
+        android:layout_width="240dp"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/imageViewNotification2"
+        android:layout_toRightOf="@+id/imageViewNotification2"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="15dp"
+        android:text="John Blake has invited you to check out a room!"/>
+
+    <ImageView
+        android:id="@+id/imageViewNotificationLine2"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_below="@+id/imageViewNotification2"
+        android:layout_marginTop="20dp"
+        android:src="#000"/>
+
+    <ImageView
+        android:id="@+id/imageViewNotification3"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_below="@+id/imageViewNotificationLine2"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/profile3"/>
+
+    <TextView
+        android:id="@+id/textViewNotification3"
+        android:layout_width="240dp"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/imageViewNotification3"
+        android:layout_toRightOf="@+id/imageViewNotification3"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="15dp"
+        android:text="May Feryl has invited you to check out a room!"/>
+
+    <ImageView
+        android:id="@+id/imageViewNotificationLine3"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_below="@+id/imageViewNotification3"
+        android:layout_marginTop="20dp"
+        android:src="#000"/>
+
+    <ImageView
+        android:id="@+id/imageViewNotification4"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_below="@+id/imageViewNotificationLine3"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/profile4"/>
+
+    <TextView
+        android:id="@+id/textViewNotification4"
+        android:layout_width="240dp"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/imageViewNotification4"
+        android:layout_toRightOf="@+id/imageViewNotification4"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="15dp"
+        android:text="Steve Johnson has invited you to check out a room!"/>
+
+    <ImageView
+        android:id="@+id/imageViewNotificationLine4"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_below="@+id/imageViewNotification4"
+        android:layout_marginTop="20dp"
+        android:src="#000"/>
+
+    <ImageView
+        android:id="@+id/imageViewNotification5"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_below="@+id/imageViewNotificationLine4"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/profile5"/>
+
+    <TextView
+        android:id="@+id/textViewNotification5"
+        android:layout_width="240dp"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/imageViewNotification5"
+        android:layout_toRightOf="@+id/imageViewNotification5"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="15dp"
+        android:text="Pei Ying has invited you to check out a room!"/>
+
+    <ImageView
+        android:id="@+id/imageViewNotificationLine5"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_below="@+id/imageViewNotification5"
+        android:layout_marginTop="20dp"
+        android:src="#000"/>
+</RelativeLayout>

@@ -26,6 +26,9 @@
         <item>Male</item>
         <item>Female</item>
     </string-array>
+    <string name="title_activity_notification">Notification</string>
+
+    <string name="hello_world">Hello world!</string>
 
 
 </resources>
