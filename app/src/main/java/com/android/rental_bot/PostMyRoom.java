@@ -4,6 +4,8 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ArrayAdapter;
+import com.rey.material.widget.Spinner;
 
 
 public class PostMyRoom extends ActionBarActivity {
@@ -12,6 +14,22 @@ public class PostMyRoom extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_post_my_room);
+
+        Spinner spinnerfurniture = (Spinner) findViewById(R.id.spinnerPostMyRoomFurniture);
+
+        ArrayAdapter<CharSequence> adapterFurniture = ArrayAdapter.createFromResource(this, R.array.furnitureArray, android.R.layout.simple_spinner_item);
+        adapterFurniture.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinnerfurniture.setAdapter(adapterFurniture);
+
+
+
+
+
+        Spinner spinnergender = (Spinner) findViewById(R.id.spinnerPostMyRoomGender);
+
+        ArrayAdapter<CharSequence> adapterGender = ArrayAdapter.createFromResource(this, R.array.genderArray, android.R.layout.simple_spinner_item);
+        adapterGender.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinnergender.setAdapter(adapterGender);
     }
 
     @Override

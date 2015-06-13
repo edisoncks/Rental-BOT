@@ -14,4 +14,14 @@
 
     <string name="hello_world">Hello world!</string>
     <string name="title_activity_invite_friends">InviteFriends</string>
+
+    <string-array name="furnitureArray">
+        <item>Fully</item>
+        <item>Partially</item>
+    </string-array>
+
+    <string-array name="genderArray">
+        <item>Male</item>
+        <item>Female</item>
+    </string-array>
 </resources>
