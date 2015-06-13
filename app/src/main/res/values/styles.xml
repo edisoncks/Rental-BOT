@@ -5,4 +5,31 @@
         <!-- Customize your theme here. -->
     </style>
 
+    <style name="MainMenuTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="android:actionBarStyle">@style/MainMenuActionBar</item>
+        <item name="actionBarStyle">@style/MainMenuActionBar</item>
+
+        <item name="android:actionBarTabTextStyle">@style/MainMenuActionBarTabText</item>
+        <item name="actionBarTabTextStyle">@style/MainMenuActionBarTabText</item>
+
+        <item name="android:actionMenuTextColor">@color/ActionBarFontColor</item>
+        <item name="actionMenuTextColor">@color/ActionBarFontColor</item>
+    </style>
+
+    <style name="MainMenuActionBar" parent="Widget.AppCompat.Light.ActionBar.Solid.Inverse">
+        <item name="android:background">@color/ActionBarColor</item>
+        <item name="background">@color/ActionBarColor</item>
+
+        <item name="android:titleTextStyle">@style/MainMenuActionBarTitleText</item>
+        <item name="titleTextStyle">@style/MainMenuActionBarTitleText</item>
+    </style>
+
+    <style name="MainMenuActionBarTitleText" parent="TextAppearance.AppCompat.Widget.ActionBar.Title">
+        <item name="android:textColor">@color/ActionBarFontColor</item>
+    </style>
+
+    <style name="MainMenuActionBarTabText" parent="Widget.AppCompat.ActionBar.TabText">
+        <item name="android:textColor">@color/ActionBarFontColor</item>
+    </style>
+
 </resources>
