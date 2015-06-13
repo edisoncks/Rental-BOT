@@ -155,6 +155,9 @@ public class MainActivity extends ActionBarActivity {
                     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                         Unit unit = (Unit) parent.getItemAtPosition(position);
                         Toast.makeText(MainActivity.this, unit.unitAddress, Toast.LENGTH_LONG).show();
+                        // Start RoomDetail Intent
+                        Intent intent = new Intent(getApplicationContext(), RoomDetail.class);
+                        startActivity(intent);
                     }
                 }
         );
@@ -203,6 +206,9 @@ public class MainActivity extends ActionBarActivity {
                     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                         Unit unit = (Unit) parent.getItemAtPosition(position);
                         Toast.makeText(MainActivity.this, unit.unitAddress, Toast.LENGTH_LONG).show();
+                        // Start RoomDetail Intent
+                        Intent intent = new Intent(getApplicationContext(), RoomDetail.class);
+                        startActivity(intent);
                     }
                 }
         );
