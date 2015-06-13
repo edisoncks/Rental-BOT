@@ -1,9 +1,11 @@
 package com.android.rental_bot;
 
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 
 public class InviteFriends extends ActionBarActivity {
@@ -17,7 +19,7 @@ public class InviteFriends extends ActionBarActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        //getMenuInflater().inflate(R.menu.menu_invite_friends, menu);
+        getMenuInflater().inflate(R.menu.menu_invite_friends, menu);
         return true;
     }
 
@@ -29,9 +31,12 @@ public class InviteFriends extends ActionBarActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        /*if (id == R.id.action_settings) {
+        if (id == R.id.action_invite_friends) {
+            Intent intent = new Intent(getApplicationContext(), RoomDetail.class);
+            startActivity(intent);
+            Toast.makeText(InviteFriends.this, "Successfully invited friends!", Toast.LENGTH_SHORT).show();
             return true;
-        }*/
+        }
 
         return super.onOptionsItemSelected(item);
     }

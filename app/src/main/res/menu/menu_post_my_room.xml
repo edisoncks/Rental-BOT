@@ -2,4 +2,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.android.rental_bot.PostMyRoom">
+
+    <item android:id="@+id/action_upload"
+        android:icon="@drawable/ic_action_done"
+        android:title="@string/action_upload"
+        app:showAsAction="ifRoom" />
 </menu>

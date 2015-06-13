@@ -22,7 +22,7 @@
                 android:background="#e8eaf6"
                 android:id="@+id/bottomWrapperSwipeLayoutMainActivity"
                 android:layout_width="match_parent"
-                android:layout_height="350dp">
+                android:layout_height="330dp">
                 <!--What you want to show-->
 
                 <!--NGO -->

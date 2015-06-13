@@ -1,10 +1,13 @@
 package com.android.rental_bot;
 
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ArrayAdapter;
+import android.widget.Toast;
+
 import com.rey.material.widget.Spinner;
 
 
@@ -47,7 +50,10 @@ public class PostMyRoom extends ActionBarActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        if (id == R.id.action_upload) {
+            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+            startActivity(intent);
+            Toast.makeText(PostMyRoom.this, "Your room has been posted succesfully!", Toast.LENGTH_SHORT).show();
             return true;
         }
 
