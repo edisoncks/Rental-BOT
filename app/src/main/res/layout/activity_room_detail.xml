@@ -104,6 +104,14 @@
                 </RelativeLayout>
             </HorizontalScrollView>
 
+            <ImageView
+                android:id="@+id/imageViewRoomDetailGender"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_alignBottom="@+id/scrollViewRoomDetail"
+                android:layout_alignParentRight="true"
+                android:src="@drawable/male"/>
+
             <TextView
                 android:id="@+id/textViewRoomDetailRoomAddress"
                 android:layout_width="wrap_content"

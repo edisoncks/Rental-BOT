@@ -3,10 +3,12 @@ package com.android.rental_bot;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.util.TypedValue;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -15,9 +17,12 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -37,6 +42,14 @@ public class MainActivity extends ActionBarActivity {
     private CharSequence mDrawerTitle;
     private CharSequence mTitle;
     private boolean hideMenuItem = false;
+    private String area;
+    private String gender;
+    private String furniture;
+    private int roomSizeMin;
+    private int roomSizeMax;
+    private int rentalMin;
+    private int rentalMax;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -85,7 +98,7 @@ public class MainActivity extends ActionBarActivity {
         fab.setOnClickListener(new FloatingActionButton.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(MainActivity.this, "FAB Clicked", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(MainActivity.this, "FAB Clicked", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(getApplicationContext(), PostMyRoom.class);
                 startActivity(intent);
             }
@@ -93,13 +106,18 @@ public class MainActivity extends ActionBarActivity {
         // FAB code ends
 
         // Drawer - My Own Unit list view code starts
-        ArrayList<Unit> arrayOfUnits = new ArrayList<>();
-        Unit unit1 = new Unit(R.drawable.room1, "3, Jalan PJS 11/9", "Bandar Sunway", 700, "Fully Furnished", 400, 359, "M");
-        Unit unit2 = new Unit(R.drawable.room2, "A1-7-5, Vista Komanwel A", "Bukit Jalil", 500, "Fully Furnished", 300, 128, "F");
-        Unit unit3 = new Unit(R.drawable.room3, "A1-7-6, Vista Komanwel A", "Bukit Jalil", 600, "Fully Furnished", 350, 243, "M");
+        final ArrayList<Unit> arrayOfUnits = new ArrayList<>();
+        final Unit unit1 = new Unit(R.drawable.room1, "3, Jalan PJS 11/9", "Bandar Sunway", 700, "Fully Furnished", 400, 359, "M");
+        final Unit unit2 = new Unit(R.drawable.room2, "A1-7-5, Vista Komanwel A", "Bukit Jalil", 500, "Fully Furnished", 300, 128, "F");
+        final Unit unit3 = new Unit(R.drawable.room3, "A1-7-6, Vista Komanwel A", "Bukit Jalil", 600, "Fully Furnished", 350, 243, "M");
+        final Unit unit4 = new Unit(R.drawable.room4, "10, Jalan Radin", "Sri Petaling", 550, "Fully Furnished", 340, 298, "M");
+        final Unit unit5 = new Unit(R.drawable.room5, "35, Jalan Merah 9", "Taman Pelangi, Johor Bahru", 340, "Partially Furnished", 200, 148, "F");
+
         arrayOfUnits.add(unit1);
         arrayOfUnits.add(unit2);
         arrayOfUnits.add(unit3);
+        arrayOfUnits.add(unit4);
+        arrayOfUnits.add(unit5);
         ListAdapter listAdapter = new MyOwnUnitAdapter(this, arrayOfUnits);
         final ListView my_own_unit_listview = (ListView) findViewById(R.id.listViewMainActivityMyOwnUnit);
         my_own_unit_listview.setAdapter(listAdapter);
@@ -108,7 +126,7 @@ public class MainActivity extends ActionBarActivity {
                     @Override
                     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                         Unit unit = (Unit) parent.getItemAtPosition(position);
-                        Toast.makeText(MainActivity.this, unit.unitAddress, Toast.LENGTH_LONG).show();
+                        //Toast.makeText(MainActivity.this, unit.unitAddress, Toast.LENGTH_LONG).show();
                         // Start RoomDetail Intent
                         Intent intent = new Intent(getApplicationContext(), RoomDetail.class);
                         startActivity(intent);
@@ -158,7 +176,7 @@ public class MainActivity extends ActionBarActivity {
                     @Override
                     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                         Unit unit = (Unit) parent.getItemAtPosition(position);
-                        Toast.makeText(MainActivity.this, unit.unitAddress, Toast.LENGTH_LONG).show();
+                        //Toast.makeText(MainActivity.this, unit.unitAddress, Toast.LENGTH_LONG).show();
                         // Start RoomDetail Intent
                         Intent intent = new Intent(getApplicationContext(), RoomDetail.class);
                         startActivity(intent);
@@ -197,10 +215,6 @@ public class MainActivity extends ActionBarActivity {
         // Drawer - My History list view code ends
 
         // Result list view code starts
-        Unit unit4 = new Unit(R.drawable.room4, "10, Jalan Radin", "Sri Petaling", 550, "Fully Furnished", 340, 298, "M");
-        Unit unit5 = new Unit(R.drawable.room5, "35, Jalan Merah 9", "Taman Pelangi, Johor Bahru", 340, "Partially Furnished", 200, 148, "F");
-        arrayOfUnits.add(unit4);
-        arrayOfUnits.add(unit5);
         final ListView result_list = (ListView) findViewById(R.id.listViewMainActivityResultList);
         ListAdapter resultListAdapter = new ResultListAdapter(this, arrayOfUnits);
         result_list.setAdapter(resultListAdapter);
@@ -209,7 +223,7 @@ public class MainActivity extends ActionBarActivity {
                     @Override
                     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                         Unit unit = (Unit) parent.getItemAtPosition(position);
-                        Toast.makeText(MainActivity.this, unit.unitAddress, Toast.LENGTH_LONG).show();
+                        //Toast.makeText(MainActivity.this, unit.unitAddress, Toast.LENGTH_LONG).show();
                         // Start RoomDetail Intent
                         Intent intent = new Intent(getApplicationContext(), RoomDetail.class);
                         startActivity(intent);
@@ -230,18 +244,20 @@ public class MainActivity extends ActionBarActivity {
         // Result list view code ends
 
         // SwipeLayout code starts
-        SwipeLayout swipeLayout = (SwipeLayout) findViewById(R.id.swipeLayoutMainActivity);
+        final SwipeLayout swipeLayout = (SwipeLayout) findViewById(R.id.swipeLayoutMainActivity);
         swipeLayout.setShowMode(SwipeLayout.ShowMode.LayDown);
         swipeLayout.addDrag(SwipeLayout.DragEdge.Top, findViewById(R.id.bottomWrapperSwipeLayoutMainActivity));
         swipeLayout.setRightSwipeEnabled(false);
         // SwipeLayout code ends
 
         // Search bar code starts
+        final EditText searchEditText = (EditText) findViewById(R.id.editTextMainActivitySearchBar);
         final Button searchButton = (Button) findViewById(R.id.btnMainActivitySearchButton);
         searchButton.setOnClickListener(new Button.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(MainActivity.this, "Search Button Clicked", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(MainActivity.this, "Search Button Clicked", Toast.LENGTH_SHORT).show();
+                //swipeLayout.close(true);
             }
         });
 
@@ -249,13 +265,19 @@ public class MainActivity extends ActionBarActivity {
         // Search filter code starts
         final Button btnSearchNearMe = (Button) findViewById(R.id.btnSearchNearMe);
         final Button btnSearchSearch = (Button) findViewById(R.id.btnSearchSearch);
+        final RadioGroup radioGroupGender = (RadioGroup) findViewById(R.id.radioGroupGender);
+        final RadioGroup radioGroupFurniture = (RadioGroup) findViewById(R.id.radioGroupFurniture);
+
 
         RangeBar rangeBarSearchRoomSize = (RangeBar) findViewById(R.id.rangeBarSearchRoomSize);
         rangeBarSearchRoomSize.setOnRangeBarChangeListener(new RangeBar.OnRangeBarChangeListener() {
             @Override
             public void onRangeChangeListener(RangeBar rangeBar, int i, int i1, String s, String s1) {
+                roomSizeMin = Integer.parseInt(s);
+                roomSizeMax = Integer.parseInt(s1);
 
             }
+
         });
         RangeBar rangeBarSearchRental = (RangeBar) findViewById(R.id.rangebarSearchRental);
 
@@ -263,6 +285,8 @@ public class MainActivity extends ActionBarActivity {
         rangeBarSearchRental.setOnRangeBarChangeListener(new RangeBar.OnRangeBarChangeListener() {
             @Override
             public void onRangeChangeListener(RangeBar rangeBar, int i, int i1, String s, String s1) {
+                rentalMin = Integer.parseInt(s);
+                rentalMax = Integer.parseInt(s1);
             }
         });
 
@@ -271,12 +295,111 @@ public class MainActivity extends ActionBarActivity {
         btnSearchNearMe.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                swipeLayout.close(true);
             }
         });
 
         btnSearchSearch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (roomSizeMin == 0) {
+                    roomSizeMin = 100;
+                }
+                if (roomSizeMax == 0) {
+                    roomSizeMax = 500;
+                }
+                if (rentalMin == 0) {
+                    rentalMin= 200;
+                }
+                if (rentalMax == 0) {
+                    rentalMax = 1000;
+                }
+
+
+                area = searchEditText.getText().toString();
+
+                int selectedGender = radioGroupGender.getCheckedRadioButtonId();
+                RadioButton radioButtonGender = (RadioButton) findViewById(selectedGender);
+
+
+                String rbGenderText = radioButtonGender.getText().toString();
+                gender = rbGenderText.substring(0,1).toUpperCase();
+
+
+                int selectedFurniture = radioGroupFurniture.getCheckedRadioButtonId();
+                RadioButton radioButtonFurniture = (RadioButton) findViewById(selectedFurniture);
+                String rbFurnitureText = radioButtonFurniture.getText().toString();
+                furniture = rbFurnitureText.concat(" Furnished");
+
+                arrayOfUnits.clear();
+                arrayOfUnits.add(unit1);
+                arrayOfUnits.add(unit2);
+                arrayOfUnits.add(unit3);
+                arrayOfUnits.add(unit4);
+                arrayOfUnits.add(unit5);
+
+
+                if(!unit1.tenantGender.equals(gender) || !unit1.furnitureOption.equals(furniture) || unit1.unitRental < rentalMin || unit1.unitRental > rentalMax || unit1.roomSize < roomSizeMin || unit1.roomSize > roomSizeMax || !unit1.unitArea.contains(area)) {
+                    arrayOfUnits.remove(unit1);
+                }
+                if(!unit2.tenantGender.equals(gender) || !unit2.furnitureOption.equals(furniture) || unit2.unitRental < rentalMin || unit2.unitRental > rentalMax || unit2.roomSize < roomSizeMin || unit2.roomSize > roomSizeMax || !unit2.unitArea.contains(area)) {
+                    arrayOfUnits.remove(unit2);
+                }
+                if(!unit3.tenantGender.equals(gender) || !unit3.furnitureOption.equals(furniture) || unit3.unitRental < rentalMin || unit3.unitRental > rentalMax || unit3.roomSize < roomSizeMin || unit3.roomSize > roomSizeMax || !unit3.unitArea.contains(area)) {
+                    arrayOfUnits.remove(unit3);
+                }
+                if(!unit4.tenantGender.equals(gender) || !unit4.furnitureOption.equals(furniture) || unit4.unitRental < rentalMin || unit4.unitRental > rentalMax || unit4.roomSize < roomSizeMin || unit4.roomSize > roomSizeMax || !unit4.unitArea.contains(area)) {
+                    arrayOfUnits.remove(unit4);
+                }
+                if(!unit5.tenantGender.equals(gender) || !unit5.furnitureOption.equals(furniture) || unit5.unitRental < rentalMin || unit5.unitRental > rentalMax || unit5.roomSize < roomSizeMin || unit5.roomSize > roomSizeMax || !unit5.unitArea.contains(area)) {
+                    arrayOfUnits.remove(unit5);
+                }
+
+                ListAdapter listAdapter = new MyOwnUnitAdapter(getApplicationContext(), arrayOfUnits);
+                my_own_unit_listview.setAdapter(listAdapter);
+                my_own_unit_listview.setOnItemClickListener(
+                        new AdapterView.OnItemClickListener() {
+                            @Override
+                            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                                Unit unit = (Unit) parent.getItemAtPosition(position);
+                                //Toast.makeText(MainActivity.this, unit.unitAddress, Toast.LENGTH_LONG).show();
+                                // Start RoomDetail Intent
+                                Intent intent = new Intent(getApplicationContext(), RoomDetail.class);
+                                startActivity(intent);
+                            }
+                        }
+                );
+
+                my_history_listview.setAdapter(listAdapter);
+                my_history_listview.setOnItemClickListener(
+                        new AdapterView.OnItemClickListener() {
+                            @Override
+                            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                                Unit unit = (Unit) parent.getItemAtPosition(position);
+                                //Toast.makeText(MainActivity.this, unit.unitAddress, Toast.LENGTH_LONG).show();
+                                // Start RoomDetail Intent
+                                Intent intent = new Intent(getApplicationContext(), RoomDetail.class);
+                                startActivity(intent);
+                            }
+                        }
+                );
+
+                ListAdapter resultListAdapter = new ResultListAdapter(getApplicationContext(), arrayOfUnits);
+                result_list.setAdapter(resultListAdapter);
+                result_list.setOnItemClickListener(
+                        new AdapterView.OnItemClickListener() {
+                            @Override
+                            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                                Unit unit = (Unit) parent.getItemAtPosition(position);
+                                //Toast.makeText(MainActivity.this, unit.unitAddress, Toast.LENGTH_LONG).show();
+                                // Start RoomDetail Intent
+                                Intent intent = new Intent(getApplicationContext(), RoomDetail.class);
+                                startActivity(intent);
+                            }
+                        }
+                );
+
+                swipeLayout.close(true);
             }
         });
         // Search filter code ends
