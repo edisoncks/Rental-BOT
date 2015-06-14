@@ -23,6 +23,14 @@ public class Login extends ActionBarActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+
+                intent.putExtra("furniture", "");
+                intent.putExtra("gender", "");
+                intent.putExtra("area", "");
+                intent.putExtra("address", "");
+                intent.putExtra("desc", "");
+                intent.putExtra("rental", "");
+
                 startActivity(intent);
             }
         });

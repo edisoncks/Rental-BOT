@@ -118,6 +118,37 @@ public class MainActivity extends ActionBarActivity {
         arrayOfUnits.add(unit3);
         arrayOfUnits.add(unit4);
         arrayOfUnits.add(unit5);
+
+        // Upload my own room code
+        Intent intent = getIntent();
+
+
+
+        try{
+            String furnitureString = intent.getStringExtra("furniture");
+            String genderString = intent.getStringExtra("gender");
+            String areaString = intent.getStringExtra("area");
+            String addressString = intent.getStringExtra("address");
+            String descString = intent.getStringExtra("desc");
+            String rentalString = intent.getStringExtra("rental");
+
+            if (!furnitureString.isEmpty() && furnitureString != null && !genderString.isEmpty() && genderString != null && !areaString.isEmpty() && areaString != null && !addressString.isEmpty() && addressString != null && !descString.isEmpty() && descString != null && !rentalString.isEmpty() && rentalString != null) {
+                final Unit unit6 = new Unit(R.drawable.default_image, addressString, areaString, Integer.parseInt(rentalString), furnitureString, 300, 0, genderString);
+                arrayOfUnits.clear();
+                arrayOfUnits.add(unit6);
+                arrayOfUnits.add(unit1);
+                arrayOfUnits.add(unit2);
+                arrayOfUnits.add(unit3);
+                arrayOfUnits.add(unit4);
+                arrayOfUnits.add(unit5);
+            }
+        } catch (NullPointerException e){
+
+        }
+
+
+
+
         ListAdapter listAdapter = new MyOwnUnitAdapter(this, arrayOfUnits);
         final ListView my_own_unit_listview = (ListView) findViewById(R.id.listViewMainActivityMyOwnUnit);
         my_own_unit_listview.setAdapter(listAdapter);
